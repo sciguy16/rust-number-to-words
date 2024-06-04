@@ -131,7 +131,7 @@ pub fn number_to_words<T: std::convert::Into<f64>>(
                     if column > 0 {
                         temp = temp
                             + &(THOUSANDS[column / 3].to_owned()
-                                + if all_zeros { " " } else { ", " });
+                                + if all_zeros { " " } else { " and " });
                     }
                     // Non-zero digit found
                     all_zeros = false;
@@ -145,7 +145,7 @@ pub fn number_to_words<T: std::convert::Into<f64>>(
             2 => {
                 // Hundreds
                 if next_digit > 0 {
-                    temp = ONES[next_digit as usize].to_owned() + " hundred ";
+                    temp = ONES[next_digit as usize].to_owned() + " hundred and ";
                     result = temp + &result;
                 }
             }
